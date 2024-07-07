@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <title>Index</title>
+    <link rel="stylesheet" href="Styling/index.css" />
+    <style>
+      body,
+      html {
+        height: 100%;
+        width: 100%;
+        overflow-x: hidden; 
+
+      }
+      ::-webkit-scrollbar 
+      {
+        display: none;
+    
+      }
+      .ok {
+        color: green;
+      }
+
+      .not-ok {
+        color: red;
+      }
+      .start {
+        background-image: url(Images/whatsapp\ brown\ bg.png);
+        height: 100%;
+        /* min-height: 500px; */
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+       
+     
+      }
+      .navbar-index {
+        box-shadow: 0.5px 5px 2px 0 rgba(0, 0, 0, 0.422), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+
+        background-color: #55734fea;
+      }
+      .navbar-signup
+      {
+        border-radius: 0px;
+        border: 2px white solid;
+        color: white;
+
+      }
+      .navbar-signup:hover
+      {
+        border-radius: 0px;
+        border: 2px white  solid;
+        color: #172314;
+        background-color: white;
+      }
+      .navbar-login
+      {
+        border-radius: 0px;
+        border: 2px white  solid;
+        color: #172314;
+        background-color: white;
+      }
+      .navbar-login:hover
+      {
+        border-radius: 0px;
+        border: 2px white solid;
+        color: white;
+      }
+      .outer2 {
+        background-image: url(Images/whatsapp\ blackBg.jpg);
+        height: 100%;
+        min-height: 500px;
+        align-items: center;
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+      
+      }
+      .outer3{
+        background-image: url(Images/whatsapp\ brown\ bg.png);
+        height: 90%;
+        min-height: 500px;
+        background-attachment: fixed;
+        background-position: center;
+       
+      }
+    .outer3-heading
+    {
+      background-image: url(Images/whatsapp\ brown\ bg.png);
+      height: 30%;
+      background-attachment: fixed;
+        background-position: center;
+       
+        line-height: 30px;
+        padding-top: 30px;
+    }
+    .maid-main
+    {
+      animation: fadeIn 2s ease-in; 
+
+    }
+    .hook-line
+    {
+      transition: 0.5s ease-out;
+    }
+
+    .hook-line:hover 
+    {
+      text-shadow: 0 0 10px #79a670ea, 0 0 20px #79a670ea, 0 0 40px #79a670ea;
+    }
+    .third-heading
+    {
+      font-size: 75px;
+      font-weight: bolder;
+      font-family: 'Times New Roman', Times, serif;
+      margin-left: 50px;
+      align-items: center;
+      
+    }
+    .third-heading-many
+    {
+      font-size: 75px;
+      font-weight: bolder;
+      font-family: 'Times New Roman', Times, serif;
+      margin-left: 50px;
+      align-items: center;
+    }
+    .outer3-heading-many
+    {
+      background-image: url(Images/whatsapp\ brown\ bg.png);
+      
+      background-attachment: fixed;
+      justify-content: right;
+      padding-right: 10px;
+      /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+
+    }
+    .service-cards
+    {
+      border-radius: 8%;
+      transition: 2s ease-out;
+    }
+    .contact-us
+    {
+      height: 100%;
+      /* background-image: url(Images/whatsappBg.jpg);  */
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+       background-color: #fbfff8;
+      padding-top: 90px;
+    }
+    .contact-us-heading
+    {
+      height:44%;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .contact-us-mid
+    {
+      display: flex; 
+      flex-wrap: wrap; 
+      align-items: flex-start; 
+      width: 100%;
+      height: 30%;
+      padding-left: 180px;
+
+    }
+    .contact-us-text
+    {
+      font-size: 26px;
+      font-family: cursive;
+      font-weight: 200;
+    }
+    .contact-us-text2
+    {
+      font-size: 17px;
+      font-family:cursive;
+      font-weight: 200;
+    }
+    .mybtns
+    {
+      border: 2px #4a803b solid;
+      border-radius: 0px;
+      background-color: #fbfff8;
+      width: 200px;
+      margin: 5px;
+      font-family: cursive;
+      height: 60px;
+    }
+    .mybtns:hover
+    {
+      border: 2px #d5b895 solid;
+      color: #4a803b;
+    }
+    .pic1
+    {
+      align-items: baseline;
+    }
+    .pic2
+    {
+      align-items: center;
+    }
+    .pic3
+    {
+      align-items: baseline;
+    }
+    .pic4
+    {
+      align-items: center; 
+    }
+    @media(max-width:1250px)
+      {
+        .service-cards
+        {
+          width: 270px;
+          height: 270px;
+        }
+   
+      }
+      @media(max-width:1050px)
+      {
+        .service-cards
+        {
+            width: 300px;
+            height:300px;
+        }
+        .outer3
+        {
+          height: 120%;
+        }
+        .pic1
+        {
+          align-items: center;
+          margin: 43px;
+          margin-bottom: 0px;
+
+        }
+        .pic3
+        {
+          align-items:center ;
+          margin: 43px;
+          margin-bottom: 0px;
+
+        }
+        .pic2
+        {
+          align-items:center ;
+          margin: 43px;
+          margin-bottom: 0px;
+
+        }
+        .pic4
+        {
+          align-items:center ;
+          margin: 43px;
+          margin-bottom: 0px;
+
+        }
+      }
+      @media(max-width:993px)
+      {
+        .start
+        {
+          height: 150%;
+
+        }
+        .outer2
+        {
+          height: 120%;
+        }
+      }
+     @media(max-width:950px)
+     {
+      .contact-us-mid
+      {
+        padding-left: 120px;
+      }
+     }
+      @media(max-width:850px)
+      {
+        .contact-us-mid
+        {
+          padding-left: 70px;
+        }
+        .service-cards
+        {
+          width: 280px;
+          height: 280px;
+        }
+        .pic1
+        {
+          align-items: center; margin: 45px;
+        }
+        .pic3
+        {
+          align-items: center; 
+          margin: 45px;
+        }
+        .pic2
+        {
+          align-items: center; margin: 45px;
+        }
+        .pic4
+        {
+          align-items: center; 
+          margin: 45px;
+        }
+      }
+      @media(max-width:750px)
+      {
+        .contact-us-mid
+        {
+          padding-left: 40px;
+        }
+        .service-cards
+        {
+          width: 250px;
+          height: 250px;
+        }
+        .pic1
+        {
+          align-items: center; 
+          margin: 25px;
+        }
+        .pic3
+        {
+          align-items: center; 
+          margin: 25px;
+        }
+        .pic2
+        {
+          align-items: center; 
+          margin: 25px;
+        }
+        .pic4
+        {
+          align-items: center; 
+          margin: 25px;
+        }
+      }
+      @media(max-width:640px)
+      {
+        .mybtns
+        {
+          width: 170px;
+          height: 70px;
+        }
+      }
+      @media(max-width:620px)
+      {
+        .contact-us-heading
+        {
+        margin-bottom: 30px;
+        }
+        .contact-us-mid
+        {
+          height: 45%;
+        }
+      }
+      @media(max-width:610px)
+      {
+        .outer3
+        {
+          height: 230%;
+        }
+        .service-cards
+        {
+          width: 300px;
+          height: 300px;
+        }
+      }
+      @media(max-width:480px)
+      {
+        .contact-us
+        {
+          height: 160%;
+        }
+        .contact-us-heading
+        {       
+          margin-top: 130px;
+          margin-bottom: 80px;
+        }
+        .mybtns
+        {
+          width: 80px;
+        }
+      }
+      
+    </style>
+
+    <script>
+      $(document).ready(function () {
+        $("#txtEmail").keyup(function () {
+          let email = $("#txtEmail").val();
+          var r = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+          if (r.test(email) == false) {
+            $("#errEmail")
+              .html(" Invalid")
+              .addClass("not-ok")
+              .removeClass("ok");
+            var btn = $("#signup");
+            btn.attr("disabled", true);
+          } else {
+            $("#errEmail").html(" Valid").addClass("ok").removeClass("not-ok");
+            if ($("#errPass").html() == " Valid") {
+              var btn = $("#signup");
+              btn.attr("disabled", false);
+            }
+          }
+        });
+
+        $("#txtpwd").keyup(function () {
+          let pass = $("#txtpwd").val();
+
+          var r =
+            /(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+
+          if (r.test(pass) == false) {
+            $("#errPass").html(" Invalid").addClass("not-ok").removeClass("ok");
+            var btn = $("#signup");
+            btn.attr("disabled", true);
+          } else {
+            $("#errPass").html(" Valid").addClass("ok").removeClass("not-ok");
+            if ($("#errEmail").html() == " Valid") {
+              var btn = $("#signup");
+              btn.attr("disabled", false);
+            }
+          }
+        });
+
+        $(".fa-solid").mousedown(function () {
+          $("#txtpwd").prop("type", "text");
+          $(".fa-solid").addClass("fa-eye").removeClass("fa-eye-slash");
+        });
+
+        $(".fa-solid").mouseup(function () {
+          $("#txtpwd").prop("type", "password");
+          $(".fa-solid").addClass("fa-eye-slash").removeClass("fa-eye");
+        });
+
+        $("#txtEmail-login").keyup(function () {
+          let email = $("#txtEmail-login").val();
+          var r = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+          if (r.test(email) == false) {
+            $("#errorEmail")
+              .html(" Invalid")
+              .addClass("not-ok")
+              .removeClass("ok");
+            var btn = $("#login");
+            btn.attr("disabled", true);
+          } else {
+            $("#errorEmail")
+              .html(" Valid")
+              .addClass("ok")
+              .removeClass("not-ok");
+            if ($("#errorPass").html() == " Valid") {
+              var btn = $("#login");
+              btn.attr("disabled", false);
+            }
+          }
+        });
+
+        $("#txtpwd-login").keyup(function () {
+          let pass = $("#txtpwd-login").val();
+
+          var r =
+            /(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+
+          if (r.test(pass) == false) {
+            $("#errorPass")
+              .html(" Invalid")
+              .addClass("not-ok")
+              .removeClass("ok");
+            var btn = $("#login");
+            btn.attr("disabled", true);
+          } else {
+            $("#errorPass").html(" Valid").addClass("ok").removeClass("not-ok");
+            if ($("#errorEmail").html() == " Valid") {
+              var btn = $("#login");
+              btn.attr("disabled", false);
+            }
+          }
+        });
+
+        $(".fa-solid").mousedown(function () {
+          $("#txtpwd-login").prop("type", "text");
+          $(".fa-solid").addClass("fa-eye").removeClass("fa-eye-slash");
+        });
+
+        $(".fa-solid").mouseup(function () {
+          $("#txtpwd-login").prop("type", "password");
+          $(".fa-solid").addClass("fa-eye-slash").removeClass("fa-eye");
+        });
+
+        $("#login-button").click(function () {
+          let obj = {
+            url: "/login-email",
+            data: {
+              kuchEmail: $("#txtEmail-login").val(),
+              passKuch: $("#txtpwd-login").val(),
+            },
+          };
+          $.ajax(obj)
+            .done(function (resp) {
+              if (resp == "Customer") {
+                window.location = "/Customer-dashboard";
+              } else {
+                window.location = "/Provider-dashboard";
+              }
+            })
+            .fail(function (err) {
+              alert("Error=" + err);
+            });
+        });
+        $("#signup-button").click(function () {
+          let obj = {
+            url: "/signup-save",
+            data: {
+              kuchEmail: $("#txtEmail").val(),
+              kuchPass: $("#txtpwd").val(),
+              kuchType: $("#userType").val(),
+            },
+          };
+          $.ajax(obj)
+            .done(function (resp) {
+              if (resp == "Customer") {
+                window.location = "/Customer-dashboard";
+              } else {
+                window.location = "/Provider-dashboard";
+              }
+            })
+            .fail(function (err) {
+              alert("Error=" + err);
+            });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="outer" style="height:100%;">
+      <!-- ---------------------------navbar----------------------- -->
+      <nav
+        class="navbar navbar-expand-lg navbar-index"
+        style="position: fixed; width: 101%"
+      >
+        <a href="#" class="navbar-brand px-0"> </a>
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse"
+            id="navbarSupportedContent "
+            style="line-height: 2.5"
+          >
+            <div class="navbar-nav py-lg-0 ms-start">
+              <i class="fa-solid fa-broom" style="color: white"></i>
+            </div>
+            <ul class="navbar-nav ms-auto">
+              <li style="align-items: center">
+                <button
+                  type="button"
+                  class="btn text-light"
+                  style="border: none"
+                >
+                  <a href="#home" style="text-decoration: none; color: white"
+                    >Home</a
+                  >
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  class="btn text-light"
+                  style="border: none"
+                >
+                  <a href="#about-us" style="text-decoration: none; color: white">
+                    About Us</a
+                  >
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  class="btn text-light"
+                  style="border: none"
+                >
+                  <a href="#contact-us" style="text-decoration: none; color: white"
+                    >Contact Us</a
+                  >
+                </button>
+              </li>
+              <li style="margin-left: 15px; margin-right: 20px">
+                <a href="https://www.instagram.com/" style="text-decoration: none; color: white"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+              </li>
+              <li style="margin-right: 15px">
+                <a href="https://www.facebook.com/" style="text-decoration: none; color: white"
+                  ><i class="fa-brands fa-facebook"></i
+                ></a>
+              </li>
+              <li style="margin-right: 20px">
+                <a href="https://twitter.com/?lang=en" style="text-decoration: none; color: white"
+                  ><i class="fa-brands fa-twitter"></i
+                ></a>
+              </li>
+              <li class="nav-but">
+                <button
+                  type="button"
+                  class="btn navbar-signup"
+                  data-bs-toggle="modal"
+                  data-bs-target="#signup-modal"
+                  aria-current="page"
+                >
+                  Signup
+                </button>
+              </li>
+              <li class="nav-but">
+                <button 
+                  type="button"
+                  class="btn  navbar-login"
+                  data-bs-target="#login-modal"
+                  data-bs-toggle="modal"
+                >
+                  Login
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+      <div class="row start" id="home" style="align-items: center; justify-content: center;">
+        <div class="col-lg-5 d-flex flex-column " style="justify-content: center;">
+          <p
+            style="
+              font-size: 100px;
+              font-weight: bolder;
+              line-height: 0.2;
+              margin-left: 40px;
+              color: #5c7854;
+            "
+          >
+            -
+          </p>
+          <p class="hook-line"
+            style="
+              font-size: 75px;
+              font-weight: bolder;
+              margin-bottom: 1px;
+              margin-top: 0px;
+              padding: 0px;
+              line-height: 1;
+              margin-left: 40px;
+              font-family: 'Times New Roman', Times, serif;
+            "
+          >
+            MAID FOR EACH OTHER
+          </p>
+          <div class="col-lg-11 d-flex flex-column" style="align-items: center">
+            <p
+              style="
+                font-size: 18px;
+                font-weight: 500;
+                font-family: 'Times New Roman', Times, serif;
+                margin-left: 40px;
+              "
+            >
+              You need a helping hand or having trouble finding reliable labour.
+              Or simply want to help people in daily household tasks then,
+              Discover more about us below.
+            </p>
+          </div>
+          <p
+            style="
+              margin-top: 0px;
+              font-size: 100px;
+              font-weight: bolder;
+              margin-left: 40px;
+              line-height: 0.05;
+              color: #5c7854;
+            "
+          >
+            -
+          </p>
+        </div>
+        <div class="col-lg-7 d-flex flex-column justify-content-center">
+          <img src="Images/maid.webp" class="maid-main" alt="">
+        </div>
+      </div>
+
+
+      <div class="row outer2" id="about-us">
+        <div class="col-lg-5">
+          <div class="col-lg-9">
+            <p
+              style="
+                font-size: 75px;
+                color: white;
+                line-height: 1.2;
+                font-family: 'Times New Roman', Times, serif;
+                margin-left: 40px;
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+                color: #5c7854;
+              "
+            >
+              What We Do
+            </p>
+            <p
+              style="
+                font-size: 100px;
+                font-weight: bolder;
+                line-height: 0;
+                margin-left: 40px;
+                color: #ed9200;
+              "
+            >
+              _
+            </p>
+            <br /><br />
+            <p
+              style="
+                font-size: 20px;
+                font-family: 'Times New Roman', Times, serif;
+                margin-left: 45px;
+                color: white;
+              "
+            >
+              Once a Job request is made by a customer, it is made available to
+              the service providers creating a direct link between the two.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex" style="justify-content: center;">
+          <div
+            class="card"
+            style="
+              width: 18rem;
+              height: 18rem;
+              margin-right: 25px;
+              margin-left: 20px;
+              background-color: #cd7f01;
+              box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.637),
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            "
+          >
+            <img
+              src="Images/service-provider.avif"
+              height="200px"
+              class="card-img-top"
+              alt=""
+            />
+            <div class="card-body">
+              <p
+                class="card-text"
+                style="
+                  font-weight: bold;
+                  font-family: 'Gill Sans', 'Gill Sans MT', Calibri,
+                    'Trebuchet MS', sans-serif;
+                  text-align: center;
+                  color: white;
+                "
+              >
+                We create a platform for people to find household works nearby
+              </p>
+            </div>
+          </div>
+          <div
+            class="card"
+            style="
+              width: 18rem;
+              height: 18rem;
+              margin-right: 30px;
+              background-color: #5c7854;
+              box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.637),
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            "
+          >
+            <img
+              src="Images/hosue.avif"
+              height="200px"
+              class="card-img-top"
+              alt=""
+            />
+            <div class="card-body">
+              <p
+                class="card-text"
+                style="
+                  font-weight: bold;
+                  font-family: 'Gill Sans', 'Gill Sans MT', Calibri,
+                    'Trebuchet MS', sans-serif;
+                  color: white;
+                "
+              >
+                We help you find the person you need to keep your house, a home
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="outer3-heading" style="display: flex; flex-wrap: wrap;">
+      <p class="third-heading">We Provide...<br>_____</p>
+      </div>
+      <div class="outer3 d-flex" style="margin-bottom: 0px; margin-top: 0px; padding-left: 10px; display: flex; flex-wrap: wrap; justify-content: center;">
+        <div class="col-md-3 d-flex pic1" style="justify-content: center;">
+          <img src="Images/gardening.png" class="service-cards" alt=""  style="  box-shadow: 5px 1px 3px 0 rgba(0, 0, 0, 0.674), 1px 3px 20px 0 rgba(0, 0, 0, 0.669);
+          ">
+        </div>
+        <div class="col-md-3 d-flex pic2" style="justify-content: center;">
+          <img src="Images/plumber.png" alt="" class="service-cards" style=" box-shadow: 5px 1px 3px 0 rgba(0, 0, 0, 0.674), 1px 3px 20px 0 rgba(0, 0, 0, 0.669);
+          ">
+        </div>
+        <div class="col-md-3 d-flex pic3"style="justify-content: center;" >
+          <img src="Images/maid-good.png" alt="" class="service-cards" style="  box-shadow: 5px 1px 3px 0 rgba(0, 0, 0, 0.674), 1px 3px 20px 0 rgba(0, 0, 0, 0.669);
+          ">
+        </div>
+        <div class="col-md-3 d-flex pic4" style="justify-content: center;" >
+          <img src="Images/mechanic.png" alt="" class="service-cards" style=" box-shadow: 5px 1px 3px 0 rgba(0, 0, 0, 0.674), 1px 3px 20px 0 rgba(0, 0, 0, 0.669);
+          ">
+        </div>
+      </div>
+      <div class="outer3-heading-many" style="display: flex; flex-wrap: wrap;">
+        <p class="third-heading-many">And Many More... <br><br><br></p>
+      </div>
+       
+      <div class="contact-us" id="contact-us" style="display: flex; flex-wrap: wrap; justify-content: center;" >
+      <div class="contact-us-heading" style="display: flex; flex-wrap: wrap; justify-content: center; height: 30%; width: 100%; background-color: #fbfff8;" >
+        <div class="card"  style="border: 0px; background-color: #fbfff8;">
+          <img src="Images/contact us more good.jpg" alt="" width="145px" height="130px">
+          <div class="card-body " style="justify-content: center;">
+            <p style="font-size: 30px; font-family:cursive; font-weight:lighter;">
+              Contact Us
+            </p>
+            <br>
+            
+          </div>
+        </div>
+      </div>
+      
+     
+      <div class="contact-us-mid ">
+       <p class="contact-us-text">
+        <br>Have a question ? <br>
+        <span class="contact-us-text2">Didn't get the info you're looking for?<span style="color: #4a803b;"><u>Check Below </u></span> to get in touch with us.
+        </span>
+        <br>
+        <span class="contact-us-text2">
+          If you can't see the pop-up, just check your add blocker is turned off or reach us via email.
+        </span>
+       </p>
+       <p class="contact-us-text2">
+       </p>
+      </div>
+      <div class="contact-us-end">
+        <button class="btn mybtns" data-bs-toggle="modal" data-bs-target="#report-us-modal"> <img src="Images/problem.png" width="40px" height="40px"  alt="">  Report Problem</button>
+        <button class="btn mybtns" data-bs-toggle="modal" data-bs-target="#chat-modal"><img src="Images/chat.png" width="45px" height="33px" alt="">Chat</button>
+        <button class="btn mybtns" data-bs-toggle="modal" data-bs-target="#call-us-modal"><img src="Images/phone calling.jpg" width="35px" height="40px" alt="">Call Us</button>
+      </div>
+      </div>
+
+          <!-- -------------------report-us-modal---------------------- -->
+
+      <div class="modal fade" id="report-us-modal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content bg-dark">
+            <div class="modal-header" style="justify-content: center;">
+              <center>
+              <p style="color: #b0d1a7; font-size: 30px;font-family: cursive;font-weight:bold ; ">Report A Problem</p>
+            </center>
+              <button type="button" class="btn-close text-light" style="color: white; background-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-light" style="justify-content: center; line-height: 30px; margin-left: 10px; font-family: cursive; font-size: 15px;">
+              Facing isues in the interface ?<br>
+              Not able to get acces to the webiste ?<br>
+              Or facing any other troubles in our interface <br>
+              <span style="font-weight: bold; color: #b0d1a7;">Feel free to mail your problems at yuvrajbti2004@gmail.com </span><br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+              <!-- -------------------------chat-modal------------------------ -->
+
+      <div class="modal fade" id="chat-modal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content bg-dark">
+            <div class="modal-header" style="justify-content: center;">
+              <center>
+              <p style="color: #b0d1a7; font-size: 30px;font-family: cursive;font-weight:bold ; ">Chat With Us</p>
+            </center>
+              <button type="button" class="btn-close text-light" style="color: white; background-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-light" style="justify-content: center; line-height: 30px; margin-left: 10px; font-family: cursive; font-size: 15px;">
+              Send a SMS "Hi" to the number 7009331757<br>
+              And our executives will be there for or send a whatsapp <br>
+              message to the same Number  <br>
+              <span style="font-weight: bold; color: #b0d1a7;">All your queries will be answered in seconds </span><br>
+            </div>
+          </div>
+        </div>
+      </div>
+         
+      <!-- -------------------------call-us-modal---------------------- -->
+
+      <div class="modal fade" id="call-us-modal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content bg-dark">
+            <div class="modal-header" style="justify-content: center;">
+              <center>
+              <p style="color: #b0d1a7; font-size: 30px;font-family: cursive;font-weight:bold ; ">Call Us</p>
+            </center>
+              <button type="button" class="btn-close text-light" style="color: white; background-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-light" style="justify-content: center; line-height: 30px; margin-left: 10px; font-family: cursive; font-size: 15px;">
+              Already a customer ? Call : 1800-123-700<br>
+              Existing Service Provider ? Call : 1900-123-800<br>
+              Any website related queries ? Call : 1800-345-200<br>
+              <span style="font-weight: bold; color: #b0d1a7;">Our executives are available 24 X 7 for you.</span><br>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!-- ---------------------signup-modal-------------------------- -->
+      <div
+        class="modal fade"
+        id="signup-modal"
+        tabindex="-1"
+        aria-labelledby="signup-modalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-success">
+              <h1 class="modal-title fs-5 text-light" id="signup-modalLabel">
+                Signup Page
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <!-- -----------------signup page ------------- -->
+
+              <form action="/signup-save" method="get">
+                <div class="mb-3">
+                  <label for="txtEmail" class="col-form-label">Email ID: </label
+                  ><span id="errEmail"> </span>
+                  <input
+                    type="text"
+                    name="txtEmail"
+                    id="txtEmail"
+                    class="form-control"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="txtpwd" class="col-form-label"
+                    >Create password:
+                  </label>
+                  <span id="errPass"> </span>
+                  <i class="fa-solid fa-eye-slash"></i>
+                  <div style="border: 0px black solid; width: 90%">
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="txtpwd"
+                      name="txtpwd"
+                    />
+                    <div style="float: right"></div>
+                  </div>
+                </div>
+                <select
+                  name="userType"
+                  id="userType"
+                  class="form-select"
+                  aria-label="Default select example"
+                >
+                  <option selected>Select user type</option>
+                  <option value="Customer">Customer</option>
+                  <option value="Provider">Provider</option>
+                </select>
+
+                <!-- ---------------------signup button--------------------------- -->
+
+                <div class="d-flex justify-content-center">
+                  <button
+                    id="signup"
+                    name="signup"
+                    type="button"
+                    class="btn bg-success text-white"
+                  >
+                    <input type="button" id="signup-button" value="Signup" />
+                    <input type="hidden" id="valid-email" />
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+            <!-- ------------------------login-modal------------------- -->
+      <div
+        class="modal fade"
+        id="login-modal"
+        tabindex="-1"
+        aria-labelledby="login-modalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-danger">
+              <h1 class="modal-title text-light fs-5" id="login-modalLabel">
+                Login Page
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <!-- --------------------login-page-------------------- -->
+
+              <form action="/login-check" method="get">
+                <div class="mb-3">
+                  <label for="txtEmail-login" class="col-form-label"
+                    >Email ID: <span id="errorEmail"></span
+                  ></label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="txtEmail-login"
+                    name="txtEmail-login"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="txtpwd-login" class="col-form-label"
+                    >Password: <span id="errorPass"></span></label
+                  ><i class="fa-solid fa-eye-slash"></i>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="txtpwd-login"
+                    name="txtpwd-login"
+                  />
+                </div>
+
+                <!-- ----------------------login button------------------- -->
+
+                <div class="d-flex justify-content-center">
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    class="btn bg-danger text-white"
+                    id="login"
+                    name="login"
+                  >
+                    <input type="button" id="login-button" value="Login" />
+                  </button>
+                </div>
+              </form>
+              <div class="d-flex justify-content-center"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+  </body>
+</html>

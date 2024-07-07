@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Dash</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+     <style>
+         html,body
+        {
+            height: 100%;
+            width: 100%;
+            overflow-x: hidden; 
+        }
+        ::-webkit-scrollbar 
+      {
+        display: none;
+    
+      }
+        .outer
+        {
+             width: 100%;
+            background-image: url(Images/minimalistbg2.webp);
+            height: 100%;
+        }
+        .card
+        {
+            margin: 2px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            backdrop-filter: blur(9px);
+        }
+        .card5
+      {
+        background-color: #71816d;
+      }
+      .card6
+      {
+        background-color: #9c9c9c;
+      }
+      .card7
+      {
+        background-color: #5c665a;
+      }
+      .card8
+      {
+        background-color: rgb(92, 127, 157);
+      }
+     </style>
+
+</head>
+<body>
+  <div class="outer">
+  <nav aria-label="breadcrumb" class="rounded-3 p-3 mb-2">
+    <ol class="breadcrumb mb-">
+      <li class="breadcrumb-item text-light"><a href="Index.html" style="font-family: cursive;">Home</a></li>
+      <li class="breadcrumb-item active text-dark" aria-current="page" style="font-family: cursive;">Dashboard</li>
+    </ol>
+  </nav>
+        <div class="row" style="justify-content: center;">
+          <div class="col-lg-3 text-center">
+              <div class="card card5 text-light mb-5" >
+                  <div class="card-header text-center h5">Users Managers</div>
+                  <div class="card-body" style="margin-top: 10px;">
+                      <img src="Images/user-manager.png" width="153px" height="100px" class="img-fluid rounded" alt="customers image here" ><br><br>
+                    <p class="card-text text-center h6">Click the below button to set or update your customer profile</p><br>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#CustomerProfileModal" class="btn"  style="height: 50px; width: 80px; border: 1px white solid;">
+                      <a href="/user-manager" style="text-decoration: none; color: white;">Click</a>
+                    </button>
+                  </div>
+                </div>
+          </div>
+          <div class="col-lg-3 text-center">
+            <div class="card card6  mb-3" >
+            <div class="card-header text-center h5 text-light" >Customers</div>
+            <div class="card-body">
+                <img src="Images/customers.webp" class="img-fluid rounded" alt="customers image here" ><br><br>
+                <p class="card-text text-center h6 text-light">View all your existing requirements made and select to keep or delete them</p><br>
+                <button type="button" class="btn"style="height: 50px; width: 80px; border: 1px white solid;">
+                  <a href="/admin-customer" style="text-decoration: none; color:white;">Click</a>
+                </button>
+  
+            </div>
+          </div>
+        </div>
+          <div class="col-lg-3 text-center"> 
+              <div class="card card8  mb-3 text-light">
+              <div class="card-header text-center h5">Service Providers</div>
+              <div class="card-body  text-center">
+                  <img src="Images/job-requirement.png" class="img-fluid rounded " alt="customers image here" > <br><br>
+                  <p class="card-text text-center h6">Select the following button to create a new job request.</p><br>
+                  <button type="button" class="btn"style="height: 50px; width: 80px; border: 1px white solid;">
+                    <a href="/admin-serviceProvider" style="text-decoration: none; color: white;">Click</a>
+                  </button>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+</body>
+</html>

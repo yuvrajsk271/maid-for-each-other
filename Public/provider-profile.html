@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Service-Provider-Profile</title>
+
+  <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous">
+  </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  
+    <style>
+        .ok
+        {
+          color: rgb(192, 233, 192);
+        }
+    
+        .not-ok
+        {
+            color: rgb(17, 62, 19);
+        }
+        .card3
+        {
+              /* background-color: #98c1d9; */
+              display: flex;
+            backdrop-filter: blur(7px);
+            background-color: rgba(89, 88, 83, 0.009); /* Transparent or see-through background */
+            /* border: 1px solid pink; */
+
+        }
+        body,html
+        {
+            background: url(Images/minimalistbg.webp);
+            height: 130%;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .card3
+        {
+            backdrop-filter: blur(11px);
+            background-color: rgba(93, 89, 78, 0); /* Transparent or see-through background */
+            font-family: 'Times New Roman', Times, serif;
+            color: #5C4033;
+            font-size: 17px;
+
+        }
+        .card3:enabled
+        {
+            backdrop-filter: blur(11px);
+            background-color: rgba(56, 53, 46, 0); /* Transparent or see-through background */
+            color: #5C4033;
+
+        }
+        .card1
+        {
+            
+            display: flex;
+            backdrop-filter: blur(11px);
+            background-color: rgba(93, 89, 78, 0.144); /* Transparent or see-through background */
+            
+        }
+        p{
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 600;
+            color: 	#5C4033;
+            font-size: 17px;
+        }
+        #pic-change
+        {
+          border: none;
+          color: white;
+          background-color: #dc3545;
+          text-decoration: none;
+          display: none;
+        }
+        #id-pic-change
+        {
+            border: none;
+          color: white;
+          background-color: #dc3545;
+          text-decoration: none;
+          display: none;
+        }
+        #providerprofilesave, #providerprofileupdate
+        {
+          border: none;
+          color: black;
+          background-color:none;
+          text-decoration: none;
+        }
+    </style>
+    <script>
+      function doshowprev(refFile,refImg)
+    {
+        const [file] = refFile.files
+        if (file) {
+          refImg.src = URL.createObjectURL(file)
+        }
+    }
+
+    $(document).ready(function()
+      {
+        $("#btncheck1").click(function()
+        {
+            var checkTandC= $("#btncheck1");
+            // if(checkTandC.is(":not checked"))
+            // $("#save-button").attr("disabled",true);
+            if(checkTandC.is(":checked") && $("#erroremail").html()==" (Valid)")
+            {
+              $("#save-button").attr("disabled",false);
+              $("#update-button").attr("disabled",false);
+
+            }
+            else
+            {
+              $("#save-button").attr("disabled",true);
+              $("#update-button").attr("disabled",true);
+            }
+        });
+
+       
+
+        $("#txtEmail").keyup(function()
+        {
+          let email=$("#txtEmail").val();
+          var r=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+          if(r.test(email)==false)
+          {
+            $("#save-button").attr("disabled",true);
+            $("#update-button").attr("disabled",true);
+            $("#erroremail").html(" (Invalid)").addClass("not-ok").removeClass("ok");
+            $("#fetch-details").attr("disabled",true);
+          }
+          else
+            {
+              $("#erroremail").html(" (Valid)").addClass("ok").removeClass("not-ok");
+              $("#fetch-details").attr("disabled",false);
+            }
+        });
+        
+            $("#fetch-details").click(function()
+            {
+                let obj=
+                {
+                    url:"/fetch-provider-details",
+                    data:
+                    {
+                        kuchEmail:$("#txtEmail").val(),
+                    }
+                }
+                    $.ajax(obj).done(function(respJsonAry)
+                        {
+                          $("#txtName").val(respJsonAry[0].fname);
+                          $("#txtNumber").val(respJsonAry[0].CNumber);
+                          $("#gender").val(respJsonAry[0].gender);
+                          $("#txtAddress").val(respJsonAry[0].location);
+                          $("#txtSince").val(respJsonAry[0].since);
+                          $("#firm").val(respJsonAry[0].firm);
+                          $("#website").val(respJsonAry[0].website);
+                          $("#Specialization").val(respJsonAry[0].OtherInfo);
+                          $("#txtCategory").val(respJsonAry[0].category);
+                          $("#prev2").prop("src","uploads/"+respJsonAry[0].proofPicName);
+                          
+                          $("#proofhdn").val(respJsonAry[0].proofPicName);
+                        }).fail
+                      (
+                        function(err)
+                        {
+                        alert("error");
+                    });
+                  
+            });
+      })
+    </script>
+</head>
+<body background="Images/minimalistbg.webp" >
+        <section  >
+        <div class="container" >
+            <div class="row">
+              <div class="col">
+                <nav aria-label="breadcrumb" class="bg- rounded-3 p-3 mb-0">
+                  <ol class="breadcrumb ">
+                    <li class="breadcrumb-item "><a href="Index.html">Home</a></li>
+                    <li class="breadcrumb-item "><a href="providerDashboard.html">Dashboard</a></li>
+                    <li class="breadcrumb-item active text-dark" aria-current="page">User Profile</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="card mb-4  card1">
+                  <div class="card-body text-center">
+                    <img src="Images/users.jpg" id="prev2" name="prev2" alt="user"
+                      class="rounded-circle img-fluid" style="width: 150px; height: 150px;">
+                      <br><br><br><br>
+                   <div class="d-flex justify-content-center mb-2">
+                      
+                    </div> 
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-9">
+                <div class="card   card1" >
+                  <div class="card-body">
+
+                    <!-- ------------------------profile-save-------------------------- -->
+
+                    <form enctype="multipart/form-data" action="/provider-profile-save" method="post">
+                      <input type="hidden" id="proofhdn" name="proofhdn">
+                        <div class="row">
+                            <div class="col-sm-7">
+                              <p class="mb-0 ">Email <span id="erroremail"></span></p>
+                            </div>
+                            <div class="col-sm-9 d-flex">
+                                <input style="margin-right: 10px;" type="text" name="txtEmail" id="txtEmail" class="form-control card3 ">
+                                <input id="fetch-details"disabled type="button" class="btn" style="background-color: #5C4033; color: white;" value="Fetch Details"></input>
+                            </div>
+                          </div>
+                          <hr>
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class=" mb-0  font-weight-bold">Full Name </p>
+                        <input type="text" name="txtName" id="txtName" class="form-control card3 ">
+                      </div>
+                      <div class="col-sm-4">
+                        <p class="mb-0 ">Phone </p>
+                        <input type="text" name="txtNumber" id="txtNumber" class="form-control card3 ">
+                      </div>
+                      <div class="col-sm-4">
+                        <p class="mb-0 ">Gender</p>
+                        <select name="gender" id="gender" class="form-control card3 ">
+                          <option value="Select">Select</option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                          <option value="Other">Other</option>
+                      </select>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <p class="mb-0 "> Location / Firm Address </p>
+                        <input type="text" name="txtAddress" id="txtAddress" class="form-control card3  ">
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-4">
+                                <p class="mb-0 ">Since</p>
+                                <input type="text" name="txtSince" id="txtSince" class="form-control card3  ">                
+                        </div>
+                        <div class="col-sm-4">
+                          <p class="mb-0 ">Firm (If any) </p>
+                          <input type="text" name="firm" id="firm" class="form-control card3  ">
+                        </div>
+                        <div class="col-sm-4">
+                            <p class="mb-0 ">Website (If Any) </p>
+                            <input type="text" name="website" id="website" class="form-control card3  ">
+                          </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <p class="mb-0 "> Specialization/ Other Info/ Previous Work </p>
+                          <input type="text" name="Specialization" id="Specialization" class="form-control card3  ">
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-12 d-flex justify-content-center">
+                            
+                            <select multiple style="width: auto; margin-left: 30px;" name="txtCategory" id="txtCategory" class="form-control card3 ">
+                                <option value="Select">Select the services you can provide</option>
+                                <option value="Plumber">Plumber</option>
+                                <option value="Maid">Maid</option>
+                                <option value="Carpenter">Carpenter</option>
+                                <option value="Cook">Cook</option>
+                                <option value="Gardener">Gardener</option>
+                                <option value="Electrician">Electrician</option>
+                                <option value="Housekeeper">Housekeeper</option>
+                                <option value="Babysitter">Babysitter</option>
+                                <option value="Painter">Painter</option>
+                                <option value="Driver">Driver</option>
+                              </select>
+                        </div>
+                        
+                      </div>
+                      <hr>
+                        <div class="d-flex justify-content-center mb-2">
+                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+
+                              <!-- -----------------------------terms and conditions--------------------- -->
+                                <input type="checkbox" class="btn-check rounded-0" id="btncheck1" autocomplete="off" >
+                                <label class="btn btn-outline-light rounded-0" for="btncheck1">Terms & Conditions </label>
+
+                              <!-- -------------------------------------save------------------------------- -->
+
+                            <button id="save-button" type="button" disabled class="btn" style=" margin-left: 15px; margin-right: 10px; background-color: #5C4033; color:white">
+                              <input id="providerprofilesave" class="btn rounded-0 save-button" value="Save" type="submit" style=" margin-left: 15px; margin-right: 10px; color: white;">
+                            </button>
+
+                            <!-- -------------------------------------update------------------------------------ -->
+
+                            <button id="update-button" type="button" disabled class="btn btn-light rounded-0" style="margin-left: 5px;">
+                              <input type="submit"  class="btn btn-light" id="providerprofileupdate" value="Update" formaction="/provider-profile-update">
+                            </button>
+
+                            <button type="button" style="width:auto; height: 50px;margin-left: 15px; background-color: #5C4033; color: white;" class="btn rounded-0">
+                              <input type="file" id="idPicChange" placeholder="change Pic" name="idPicChange" onchange="doshowprev(this,prev2)" style="display: none;"> 
+                              <label id="id-pic-change-label" for="idPicChange">
+                                  Attach Id Proof 
+                              </label>
+                          </button>
+                            <!-- ------------------------------------update picture--------------------------- -->
+                          </div> 
+                    </div>
+                  </div>
+                </form>
+                </div>
+            </section>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Customer-Dashboard</title>
+   <script
+   src="https://code.jquery.com/jquery-3.7.1.min.js"
+   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+   crossorigin="anonymous">
+  </script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        html,body
+        {
+            height: 100%;
+        }
+        .outer
+        {
+             width: 100%;
+            background-image: url(Images/doodle-bg2.jpg);
+            height: 200%;
+            /* background-position: center; */
+            /* background-repeat: no-repeat;
+            background-size: cover;
+           */
+           
+        
+        }
+        .outer2
+        {
+            padding: 0px;
+            margin-bottom: 10px;
+            width: 100%;
+           
+        }
+        .heading
+        {
+            /* background-color: rgb(27, 36, 33); */
+            /* backdrop-filter: blur(9px); */
+            height: 60px;
+            width: 100%;
+            color: red;
+
+        }
+        .card
+        {
+            margin: 2px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            backdrop-filter: blur(9px);
+        }
+     
+        .row
+        {
+        
+            margin: 0px;
+        }
+        .settings
+        {
+            padding: 0px;
+            
+        }
+        .form-control1
+        {
+            border: 0.5px solid #198754;
+        }
+        .click
+        {
+            border: none;
+         
+        }
+
+        .navbar1
+      {
+         width: 100%;
+         line-height: 50px;
+      }
+      .navbar-brand
+      {
+         font-size: 50px;
+         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+         
+      }
+      .picture-text
+      {
+         align-items: center;
+         justify-content: center;
+         padding: 0px;
+      }
+      .row1
+      {
+         height: 100%;
+         padding: 0px;
+      }
+      .bolder
+      {
+         font-size:30px;
+         font-weight: bold;
+      }
+      .story
+      {
+         font-weight:400;
+      }
+      .form
+      {
+         background-color: #d8d8d8aa;
+         border: none;
+         font-family: 'Times New Roman', Times, serif;
+      }
+      .ok
+      {
+        color: #198754;
+      }
+      .not-ok
+      {
+        color: #dc3545;
+      }
+      .card5
+      {
+        background-color: #7f5a45;
+      }
+      .card6
+      {
+        background-color: #ae9d92;
+      }
+      .card7
+      {
+        background-color: #5c665a;
+      }
+      .card8
+      {
+        background-color: rgb(92, 127, 157);
+      }
+    </style>
+
+    <script>
+      $(document).ready(function()
+      {
+
+        $("#txtEmail").keyup(function()
+        {
+          let email=$("#txtEmail").val();
+          var r=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+          if(r.test(email)==false)
+          {
+            $("#errorEmail").html(" Invalid").addClass("not-ok").removeClass("ok");
+            var btn = $("#change-pwd");
+            btn.attr("disabled",true);
+          }
+          else
+            {
+                $("#errorEmail").html(" Valid").addClass("ok").removeClass("not-ok");
+                if($("#errorPassOld").html()==" Valid" && $("#errorPassNew").html()==" Valid")
+                {
+                  var btn = $("#change-pwd");
+                  btn.attr("disabled",false);
+                }
+                
+            }
+        });
+
+        $("#txtPwdOld").keyup(function(){
+            let pass=$("#txtPwdOld").val();
+
+            var r=/(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+
+            if(r.test(pass)==false)    
+            {
+                $("#errorPassOld").html(" Invalid").addClass("not-ok").removeClass("ok");
+                var btn = $("#change-pwd");
+                btn.attr("disabled",true);
+            }
+            else
+            {
+                $("#errorPassOld").html(" Valid").addClass("ok").removeClass("not-ok");
+                if($("#errorEmail").html()==" Valid" && $("#errorPassNew").html()==" Valid")
+                {
+                  var btn = $("#change-pwd");
+                  btn.attr("disabled",false);
+                }
+                
+            }
+
+        });
+
+        $("#txtPwdNew").keyup(function(){
+            let pass=$("#txtPwdNew").val();
+
+            var r=/(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+
+            if(r.test(pass)==false)    
+            {
+                $("#errorPassNew").html(" Invalid").addClass("not-ok").removeClass("ok");
+                var btn = $("#change-pwd");
+                btn.attr("disabled",true);
+            }
+            else
+            {
+                $("#errorPassNew").html(" Valid").addClass("ok").removeClass("not-ok");
+                if($("#errorEmail").html()==" Valid" && $("#errorPassOld").html()==" Valid")
+                {
+                  var btn = $("#change-pwd");
+                  btn.attr("disabled",false);
+                }
+                
+            }
+
+        });
+
+
+        $("#DashtxtEmail").keyup(function()
+        {
+          let email=$("#DashtxtEmail").val(); 
+          var r=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+          if(r.test(email)==false)
+          {
+            $("#save-button").attr("disabled",true);
+            $("#Dasherroremail").html("  (Invalid)").addClass("not-ok").removeClass("ok");
+          }
+          else
+          {
+            $("#save-button").attr("disabled",false);
+          $("#Dasherroremail").html("  (Valid)").addClass("ok").removeClass("not-ok");
+          }
+        });
+
+        $("#settings-pwd-change").click(function()
+            {
+                let obj=
+                {
+                    
+                    url:"/change-password",
+                    data:
+                    {
+                        kuchEmail:$("#txtEmail").val(),
+                        PwdOld:$("#txtPwdOld").val(),
+                        PwdNew:$("#txtPwdNew").val(),
+                    }
+                }
+                    $.ajax(obj).done(
+                        function(resp){
+                        alert(resp);
+                        
+                    }).fail
+                    (
+                        function(err)
+                        {
+                        alert("Error="+err);
+                    });
+            });
+
+            $("#job-request-submit").click(function()
+            {
+                let obj=
+                {
+
+                    url:"/job-requirement",
+                    data:
+                    {
+                       kuchEmail:$("#DashtxtEmail").val(),
+                       kuchCategory:$("#txtCategory").val(),
+                       kuchAddress:$("#DashtxtAddress").val(),
+                       kuchCity:$("#DashtxtCity").val(),
+                       kuchDuration:$("#DashDate").val(),
+                      kuchDetailwork:$("#workDetail").val(),
+                    }
+                }
+                    $.ajax(obj).done(
+                        function(resp){
+                        alert(resp);
+                        
+                    }).fail
+                    (
+                        function(err)
+                        {
+                        alert("Error="+err);
+                    });
+            });
+
+            $("#Location").click(function()
+            {
+              if($("#Location").val()=="homeLoc")
+              {
+                let obj=
+                {
+                    url:"/home-wala-radio",
+                    data:
+                    {
+                        kuchEmail:$("#DashtxtEmail").val(),
+                    }
+                }
+                    $.ajax(obj).done(function(respJsonAry)
+                        {
+                          JSON.stringify(respJsonAry);
+                          $("#DashtxtAddress").val(respJsonAry[0].address);
+                          $("#DashtxtCity").val(respJsonAry[0].city);
+                          $("#DashtxtCity").attr("disabled",true);
+                          $("#DashtxtAddress").attr("disabled",true);
+                        }).fail
+                      (
+                        function(err)
+                        {
+                        alert("error");
+                    });
+                  }
+            });
+      })
+    </script>
+</head>
+<body>
+    <div class="outer">
+    
+      <div class="row">
+        <div class="col-lg-4">
+          <nav aria-label="breadcrumb" class="rounded-3 p-3 mb-2">
+            <ol class="breadcrumb mb-">
+              <li class="breadcrumb-item text-light"><a href="Index.html">Home</a></li>
+              <li class="breadcrumb-item active text-dark" aria-current="page">Dashboard</li>
+              <li class="breadcrumb-item text-light">
+                <button type="button" class="btn settings" data-bs-toggle="modal" data-bs-target="#settings-modal">
+                  Settings
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="settings-modal" tabindex="-1" aria-labelledby="settings-modalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header d-flex justify-content-center" style="background-color: #0f263e;">
+                        <h1 class="modal-title fs-5 text-center" id="settings-modalLabel">Settings</h1>
+                        <button type="button" class="btn-close btn-light" style="color: white; background-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+
+
+                      <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                              <p class="mb-0 text-dark">Email -</p> <span id="errorEmail"></span>
+                            </div>
+                            <div class="col-sm-8">
+                              <input type="text" name="txtEmail" id="txtEmail" class="form-control form-control1 text-dark">
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="row">
+                            <div class="col-sm-4">
+                              <p class="mb-0 text-dark">Old Password -</p><span id="errorPassOld"></span> <i class="fa-solid fa-eye-slash"></i>
+                            </div>
+                            <div class="col-sm-8">
+                              <input type="password" name="txtPwdOld" id="txtPwdOld" class="form-control  form-control1">
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="row">
+                            <div class="col-sm-4">
+                              <p class="mb-0 text-dark">New Password -</p><span id="errorPassNew"></span> 
+                            </div>
+                            <div class="col-sm-8">
+                              <input type="password" name="txtPwdNew" id="txtPwdNew" class="form-control form-control1 text-dark">
+                            </div>
+                          </div>
+                      </div>
+                      <div class="modal-footer d-flex justify-content-center">
+                          <input id="settings-pwd-change" style="background-color: #0f263e; color: white;" name="setting-pwd-change" type="button" style="border: none;" class="btn " value="Save changes">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+      
+      <div class="row" style="justify-content: center;">
+        <div class="col-lg-5 text-center">
+            <div class="card card5 text-light mb-5" >
+                <div class="card-header text-center h5">View Profile</div>
+                <div class="card-body" style="margin-top: 10px;">
+                    <img src="Images/customer-profile.jpg" class="img-fluid rounded" alt="customers image here" width="490px"><br><br>
+                  <p class="card-text text-center h6">Click the below button to set or update your customer profile</p><br>
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#CustomerProfileModal" class="btn" style="height: 50px; width: 80px; border: 1px white solid;">
+                    <a href="/CustomerProfile" style="text-decoration: none; color: white;">Click</a>
+                  </button>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-5 text-center">
+          <div class="card card6  mb-3" >
+          <div class="card-header text-center h5 text-light">Jobs Manager <br></div>
+          <div class="card-body">
+              <img src="Images/job-manager.jpg" class="img-fluid rounded" alt="customers image here" width="430px"><br><br>
+              <p class="card-text text-center h6 text-light">View all your existing requirements made and select to keep or delete them</p><br>
+              <button type="button" class="btn"style="height: 50px; width: 80px; border: 1px white solid">
+                <a href="/job-manager" style="text-decoration: none; color:white;">Click</a>
+              </button>
+
+          </div>
+        </div>
+      </div>
+        <div class="col-lg-5 text-center"> 
+            <div class="card card8  mb-3 text-light">
+            <div class="card-header text-center h5">Job Requirements</div>
+            <div class="card-body  text-center">
+                <img src="Images/job-requirement.png" class="img-fluid rounded " alt="customers image here" width="420px"> <br><br>
+                <p class="card-text text-center h6">Select the following button to create a new job request.</p><br>
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#job-requestModal" style="height: 50px; width: 80px; color: white; border: 1px white solid;">
+                  Click
+                </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 text-center">
+          <div class="card card7 mb-3 text-light" >
+              <div class="card-header text-center h5">Find Jobs</div>
+              <div class="card-body" style="margin-top: 10px;">
+                  <img src="Images/find jobs.jpg" class="img-fluid rounded" alt="customers image here" width="440px"><br><br>
+                <p class="card-text text-center h6">Click the below button to find available service providers near you </p><br>
+                <button type="button" data-bs-toggle="modal"  class="btn" style="height: 50px; width: 80px; border: 1px white solid;">
+                  <a href="/search-service-providers" style="text-decoration: none; color: white;">Click</a>
+                </button>
+              </div>
+            </div>
+      </div>
+    
+      </div>
+    </div>
+
+      <!-- -----------------------------Job-Request------------------------------ -->
+
+      <div class="modal" id="job-requestModal" aria-labelledby="job-requestModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-body ">
+              <div class="row row1 mt-0 pt-0">
+                <button type="button" class="btn-close btn-primary" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                <div class="col-lg-5  mt-0 d-flex flex-column picture-text justify-content-center">
+                      <img src="Images/request-job.webp" height="150px" width="150px" alt="Job request pic here"><br>
+                      <div class="d-flex flex-column col-lg-9 only-text justify-content-center" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                         <p class="mb-0 bolder justify-content-center d-flex " >We're here for you</p><br>
+                         <p class="mb-0 justify-content-center d-flex story">Create a job request for any kind of work, and we'll </p>
+                         <p class=" mb-0 justify-content-center d-flex story"> make sure the <span class="d-flex mb-0" style="color: #dc3545;margin-left: 4px; margin-right: 4px;">right person</span>is assigned to your work.</p>   
+                      </div>
+                </div>
+                   <div class="col-lg-6 mt-4">
+                   <div class="card mb-2 text-light form" >
+                     <div class="card-body">
+                       <form>
+                       <div class="row">
+                         <div class="col-sm-4">
+                           <p class="mb-0 text-dark">Email <span id="Dasherroremail"></span></p> 
+                         </div>
+                         <div class="col-sm-12 mb-2">
+                           <input type="text" name="DashtxtEmail" id="DashtxtEmail" class="form-control text-dark">
+                         </div>
+                       </div>
+                      
+                       <div class="row">
+                         <div class="col-sm-12">
+                           <p class="mb-0 text-dark">Task category / Type of work</p>
+                         </div>
+                         <div class="col-sm-12 mb-3">
+                          <select name="txtCategory" id="txtCategory" class="form-control card2 text-dark">
+                            <option value="Select">Select the type of work you need</option>
+                            <option value="Plumber">Plumber</option>
+                            <option value="Maid">Maid</option>
+                            <option value="Carpenter">Carpenter</option>
+                            <option value="Cook">Cook</option>
+                            <option value="Gardener">Gardener</option>
+                            <option value="Electrician">Electrician</option>
+                            <option value="Housekeeper">Housekeeper</option>
+                            <option value="Babysitter">Babysitter</option>
+                            <option value="Painter">Painter</option>
+                            <option value="Driver">Driver</option>
+                          </select>
+                         </div>
+                       </div>
+                      <div class="row">
+                         <div class="col-sm-12 d-flex justify-content-center mb-2">
+                           
+                               <input class="form-check-input" style="margin-left: 10px; margin-right:5px;" type="radio" name="Location" id="Location" value="homeLoc">
+                               <label class="form-check-label text-dark" for="homeLoc">
+                                 Home
+                               </label>
+                               <input class="form-check-input" style="margin-left: 10px; margin-right:5px;" type="radio" name="Location" id="Location" value="otherLoc">
+                               <label class="form-check-label text-dark" for="otherLoc" >
+                                 Other
+                               </label>
+                         </div>
+                       </div> 
+                       <div class="row">
+                         <div class="col-sm-4">
+                           <p class="mb-0 text-dark">Address</p>
+                         </div>
+                         <div class="col-sm-12 mb-2">
+                           <input type="text" name="DashtxtAddress" id="DashtxtAddress" class="form-control card2  text-dark">
+                         </div>
+                       </div>
+          
+               
+                       <div class="row">
+                         <div class="col-sm-6">
+                           <p class="mb-0 text-dark">City </p>
+                         </div>
+                         <div class="col-sm-6">
+                          <p class="mb-0 text-dark">Duration (Till date)</p>
+                        </div>
+                         <div class="col-sm-6 mb-2">
+                           <input type="text" name="DashtxtCity" id="DashtxtCity" class="form-control card2  text-dark">
+                         </div>
+                         
+                        <div class="col-sm-6 mb-2">
+                          <input type="date" name="DashDate" id="DashDate" class="form-control card2  text-dark">
+                        </div>
+                       </div>
+                             <div class="row">
+                         <div class="col-sm-12">
+                           <p class="mb-0 text-dark">Work to be done (In Detail)</p>
+                         </div>
+                         <div class="col-sm-12 mb-2">
+                           <input type="text" name="workDetail" id="workDetail" class="form-control card2  text-dark">
+                         </div>
+                       </div>
+                       <hr>
+                       <div class="row">
+                           <div class="d-flex justify-content-center mb-0">
+                               <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                
+                                <input id="job-request-submit" name="job-request-submit" class="btn btn-light" value="Send Request" type="button">
+                             </div> 
+                       </div>
+                     </div>
+                   </form>
+                   </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+</body>
+</html>

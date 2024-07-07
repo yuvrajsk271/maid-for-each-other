@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User-manager</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script>
+        var module=angular.module("myModule",[]);
+        var controller=module.controller("myController",function($scope,$http)
+        {
+            $scope.jsonRecordsAry=[];
+            $scope.FetchUsers=function()
+            {
+                let url="/fetch-users";
+                $http.get(url).then(done,err);
+                function done(response)
+                {
+                    $scope.jsonRecordsAry=response.data;
+                }
+                function err(response)
+                {
+                    alert(response.data);
+                }
+            }
+
+            $scope.doDelete=function(selectemailid)
+            {
+                if(confirm("Do you want to remove this user")==false)
+                return;
+
+                let url="/delete-user?emailkuch="+selectemailid;
+                $http.get(url).then(done,err);
+                function done(response)
+                {
+                    alert(response.data);
+                    $scope.FetchUsers();
+                }
+                function err(response)
+                {
+                    alert(response.data);
+                }
+            }
+
+            $scope.doBlock=function(selectemailid)
+            {
+                if(confirm("Do you want to block this user")==false)
+                return;
+
+                let url="/block-user?emailkuch="+selectemailid;
+                $http.get(url).then(done,err);
+                function done(response)
+                {
+                    alert(response.data);
+                    $scope.FetchUsers();
+                }
+                function err(response)
+                {
+                    alert(response.data);
+                }
+            }
+
+            $scope.doUnblock=function(selectemailid)
+            {
+                if(confirm("Do you want to unblock this user")==false)
+                return;
+
+                let url="/unblock-user?emailkuch="+selectemailid;
+                $http.get(url).then(done,err);
+                function done(response)
+                {
+                    alert(response.data);
+                    $scope.FetchUsers();
+                }
+                function err(response)
+                {
+                    alert(response.data);
+                }
+            }
+
+        })
+    </script>
+    <style>
+        body
+        {
+            background-image: url(Images/whatsappBg.jpg);
+        }
+    </style>
+</head>
+<body ng-app="myModule" ng-controller="myController" ng-init="FetchUsers();">
+    <nav aria-label="breadcrumb" class="rounded-3 p-3 mb-2">
+        <ol class="breadcrumb mb-">
+          <li class="breadcrumb-item text-light"><a href="Index.html" style="font-family: cursive;">Home</a></li>
+          <li class="breadcrumb-item active text-dark"><a href="Admin-dashboard.html"style="font-family: cursive;">Dashboard </a> </li>
+          <li class="breadcrumb-item active text-dark" aria-current="page" style="font-family: cursive;">User Manager</li>
+
+        </ol>
+      </nav>
+    <center>
+        <div class="card"  style="width: 98%; margin-top: 20px;line-height: 40px; background-color: #0f263e;">
+            <table style="width: 100%;" border="0"  >
+            <tr style="color: white; align-items: center;">
+                <td style="width: 20%;text-align: center;">Email ID</td>
+                <td style="width: 20%;text-align: center;"> Password</td>
+                <td style="width: 13%;text-align: center;">User Type</td>
+                <td style="width: 11%;text-align: center;">Entry Date</td>
+                <td style="width: 8%;text-align: center;">Status</td>
+                <td style="width: 8%;text-align: center;">Delete</td>
+                <td style="width: 8%;text-align: center;">Block</td>
+                <td style="width: 8%;text-align: center;">Unblock</td>
+            </tr>
+            </table>
+        </div>
+            <div class="card " ng-repeat="obj in jsonRecordsAry" style="width: 98%; margin-top: 12px;line-height: 44px; background-color: #72767b;">
+                <table style="width: 100%;" border="0" rules="all">
+                    <tr style="color: white; align-items: center;">
+                    <td style="width: 20%;text-align: center;">{{obj.emailID}}</td>
+                    <td style="width: 20%;text-align: center;">{{obj.PWD}}</td>
+                    <td style="width: 13%;text-align: center;">{{obj.UType}}</td>
+                    <td style="width: 11%;text-align: center;">{{obj.EntryDate}}</td>
+                    <td style="width: 8%;text-align: center;">{{obj.Sstatus}}</td>
+                    <td style="width: 8%;text-align: center; vertical-align: center;"><button class="btn btn-dark"><a href="#" style="text-decoration: none; color: white;" ng-click="doDelete(obj.emailID);">Delete</a></button></td>
+                    <td style="width: 8%;text-align: center; "><button class="btn btn-dark"><a href="#" ng-click="doBlock(obj.emailID)" style="text-decoration: none; color: white;">Block</a></button></td>
+                    <td style="width: 8%;text-align: center; "><button class="btn btn-dark"><a href="#" ng-click="doUnblock(obj.emailID)" style="text-decoration: none; color: white;">Unblock</a></button></td>
+
+                </tr></table>
+            </div>
+         
+    </center>
+</body>
+</html>

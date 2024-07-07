@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: gainsboro;
+        }
+
+        * {
+            margin: 0px;
+        }
+
+        #signup {
+            width: 400px;
+            height: 400px;
+            background-color: white;
+            margin: auto;
+            margin-top: 50px;
+            box-shadow: 0px 0px 10px 5px gray;
+            padding: 5px;
+
+        }
+
+        #cross {
+            width: 30px;
+            height: 30px;
+            background-image: url(./pics/cross.png);
+            background-size: contain;
+            float: right;
+
+
+        }
+
+        #logo1 {
+            width: 100px;
+            height: 100px;
+            background-image: url(./pics/userlogin.png);
+            background-size: contain;
+            border: 1px black solid;
+            margin: auto;
+
+        }
+
+        .row1 {
+            width: inherit;
+
+            height: 40px;
+        }
+
+        .row2 {
+            width: inherit;
+
+            height: 100px;
+        }
+        input[type="text"],input[type="password"]{
+            line-height: 25px;
+            width: 85%;
+            border: 0px;
+            border-bottom: 2px orangered solid;
+            text-align: center;
+            outline: none;
+        }
+        input[type="text"]:focus, input[type="password"]:focus
+        {
+            /* background-color: lightgray; */
+            border-bottom: 2px orangered dashed;
+        }
+        .btn
+        {
+           padding: 10px;
+           background-color: orange;     
+           color: white;font-weight: bold; text-align: center;
+           width: 100px; 
+           
+           cursor: pointer;
+           transition: ease all 1s;;
+          margin-top: 20px;
+     }
+     .em{
+        background-image: url(./pics/user.png);
+        background-repeat: no-repeat;
+        background-position:right center;
+        padding-right: 30px;
+        
+     }
+
+     label
+     {
+        color: darkblue;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     }
+     
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+    .ok{
+        color: green;
+    }
+    .not-ok{
+        color: red;
+    }
+</style>
+
+<script
+src="https://code.jquery.com/jquery-3.7.1.min.js"
+integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        $("#txtEmail").keyup(function(){
+            let email=$("#txtEmail").val();
+            var r=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+            
+            if(r.test(email)==false)    
+            {
+                $("#errEmail").html("Invalid").addClass("not-ok").removeClass("ok");
+            }
+            else
+            {
+                $("#errEmail").html("Valid").addClass("ok").removeClass("not-ok");
+            }
+
+        });
+        //-------------------------
+        $("#txtPass").keyup(function(){
+            let pass=$("#txtPass").val();
+
+            var r=/(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+
+            if(r.test(pass)==false)    
+            {
+                $("#errPass").html("Invalid").addClass("not-ok").removeClass("ok");
+            }
+            else
+            {
+                $("#errPass").html("Valid").addClass("ok").removeClass("not-ok");
+            }
+
+        });
+        //-------------------------
+       /* $(".fa-solid").click(function()
+        {
+            if($("#txtPass").prop("type")=="password")
+            {
+                $("#txtPass").prop("type","text");
+                $(".fa-solid").addClass("fa-eye").removeClass("fa-eye-slash");      
+            }
+            else
+            {
+                $("#txtPass").prop("type","password");
+                $(".fa-solid").addClass("fa-eye-slash").removeClass("fa-eye");   
+            }
+                
+        });
+        */
+        $(".fa-solid").mousedown(function(){
+            $("#txtPass").prop("type","text");
+                $(".fa-solid").addClass("fa-eye").removeClass("fa-eye-slash");  
+        })
+
+        $(".fa-solid").mouseup(function(){
+            $("#txtPass").prop("type","password");
+                $(".fa-solid").addClass("fa-eye-slash").removeClass("fa-eye"); 
+        })
+
+        //for name
+        //var r=/^[a-zA-Z ]*$/;
+
+        //For Mobile Number
+        //var r=/^[6-9]{1}[0-9]{9}$/;
+
+    });
+</script>
+</head>
+<body>
+    <div id="signup">
+        <div class="row1">
+            <div id="cross"></div>
+        </div>
+
+        <div class="row2">
+            <div  >
+              <center>  <i class="fa-solid fa-eye fa-beat" style="font-size: 70px;"></i></center>
+            </div>
+        </div>
+        <table width="100%" border="0">
+            <tr>
+                <td>
+                    <label for="txtEmail">Email ID <i class="fa-solid fa-envelope fa-shake" style="color:orange"></i></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input autofocus type="text" id="txtEmail" class="em"> <br>
+                    <span id="errEmail">*</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="txtPass">Password</label> <span id="errPass">*</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="border:0px black solid;width:90%">
+                        <input type="password" id="txtPass" > 
+                        <div style="border-bottom:2px orange double; float: right;margin-top: 5px;">
+                            <i class="fa-solid fa-eye-slash fa-beat"></i>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Mobile Number</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="button" class="btn" value="Signup"> 
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+
+
+</body>
+
+</html>

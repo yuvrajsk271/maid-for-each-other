@@ -1,0 +1,23 @@
+.navbar .navbar-nav .nav-but .btn
+{
+    margin: 5px;
+}
+.d-flex
+{
+    margin-top: 15px;
+}
+ #signup-button, #signup-check{
+  /* background-color:; */
+  border: none;
+  color: white;
+  background-color: #198754;
+  text-decoration: none;
+}
+#login-button
+{
+  border: none;
+  color: white;
+  background-color: #dc3545;
+  text-decoration: none;
+
+}

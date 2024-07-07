@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jobs-Manager</title>
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script>
+        var module=angular.module("myModule",[]);
+        var controller=module.controller("myController",function($scope,$http)
+        {
+            $scope.jsonRecordsAry=[];
+            $scope.FetchJobRequest=function(mail)
+            {
+                let url="/fetch-job-request?fetchmail="+$("#txtemailfetch").val();
+                $http.get(url).then(done,err); 
+                function done(response)
+                {
+                    $scope.jsonRecordsAry=response.data;
+                }
+                function err(response)
+                {
+                    alert(response.data);
+                }
+            }
+
+            $scope.doDelete=function(selectRid)
+            {
+                if(confirm("Do you want to delete your request")==false)
+                return;
+
+                let url="/delete-job-request?RIDkuch="+selectRid;
+                $http.get(url).then(done,err);
+                function done(response)
+                {
+                    alert(response.data);
+                    $scope.FetchJobRequest();
+                }
+                function err(response)
+                {
+                    alert(response.data);
+                }
+            }
+        })
+    </script>
+    <style>
+        body
+        {
+            background-image: url(Images/whatsappBg.jpg);
+        }
+    </style>
+</head>
+<body ng-app="myModule" ng-controller="myController">
+    <div class="row">
+        <div class="col-lg-4">
+        <nav aria-label="breadcrumb" class="rounded-3 p-3 mb-2">
+          <ol class="breadcrumb mb-">
+            <li class="breadcrumb-item text-light"><a href="Index.html">Home</a></li>
+            <li class="breadcrumb-item text-dark" ><a href="Customer-dashboard.html">Dashboard</a></li>
+            <li class="breadcrumb-item active text-dark" aria-current="page">Job-Manager</li>
+            </ol>
+        </nav>
+        </div>
+    </div>
+    <center>
+        <div class="row" style="justify-content: center;">
+        <div class="col-md-3">
+        <input class="form-control " type="email" id="txtemailfetch" name="txtemailfetch" placeholder="Enter Email ID">
+        </div>  
+        <div class="col-md-2">
+            <input type="button" style="background-color: #0f263e; color: white;" class="btn text-light form-control" id="customerprofileupdate" value="Search Requests" ng-click="FetchJobRequest(txtemailfetch)">
+        </div>
+        <div>
+
+        <div class="card"  style="width: 98%; margin-top: 20px;line-height: 40px; background-color: #0f263e;">
+            <table style="width: 100%;" border="0"  >
+            <tr style="color: white; align-items: center;">
+                <td style="width: 5%;text-align: center;">Reqest ID</td>
+                <td style="width: 17%;text-align: center;">Email</td>
+                <td style="width: 7%;text-align: center;">Category</td>
+                <td style="width: 24%;text-align: center;">Address</td>
+                <td style="width: 14%;text-align: center;">TillDate</td>
+                <td style="width: 7%;text-align: center;">Delete</td>
+            </tr>
+            </table>
+        </div>
+            <div class="card " ng-repeat="obj in jsonRecordsAry" style="width: 98%; margin-top: 12px;line-height: 44px; background-color: #72767b;">
+                <table style="width: 100%;" border="0" rules="all">
+                    <tr style="color: white; align-items: center;">
+                    <td style="width: 5%;text-align: center;">{{obj.ReqID}}</td>
+                    <td style="width: 17%;text-align: center;">{{obj.emailID}}</td>
+                    <td style="width: 7%;text-align: center;">{{obj.Category}}</td>
+                    <td style="width: 22%;text-align: center;">{{obj.address}}</td>
+                    <td style="width: 16%;text-align: center;">{{obj.TillDate}}</td>
+                    <td style="width: 2%;text-align: center; vertical-align: center;"><input type="button" value="delete" class="form-control" ng-click="doDelete(obj.ReqID)" style="background-color: black; width: 90px; color: white; border: 0px;"></td>
+                </tr></table>
+            </div>
+          
+    </center>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Provider Manager</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        var module=angular.module("myModule",[]);
+       var controller=module.controller("myController",function($scope,$http)
+       {
+           $scope.jsonRecordsAry=[];
+           $scope.FetchAdminProviders=function()
+           {
+               let url="/fetch-admin-providers";
+               $http.get(url).then(done,err);
+               function done(response)
+               {
+                   $scope.jsonRecordsAry=response.data;
+               }
+               function err(response)
+               {
+                   alert(response.data);
+               }
+           }
+
+       })
+   </script>
+   <style>
+    .common
+    {
+      color: #ed7117;
+    }
+    body
+    {
+      background-color: #ececec;
+    }
+   </style>
+</head>
+<body ng-app="myModule" ng-controller="myController" ng-init="FetchAdminProviders();">
+    <nav aria-label="breadcrumb" class=" p-3 mb-2">
+        <ol class="breadcrumb mb-">
+          <li class="breadcrumb-item text-light"><a href="Index.html" style="font-family: cursive;">Home</a></li>
+          <li class="breadcrumb-item active text-dark"><a href="Admin-dashboard.html"style="font-family: cursive;">Dashboard </a> </li>
+          <li class="breadcrumb-item active text-dark" aria-current="page" style="font-family: cursive;">Service Provider Manager</li>
+
+        </ol>
+      </nav>
+    <center>
+        <div class="card " ng-repeat="obj in jsonRecordsAry" style="width: 98%;border-radius: 0px; margin-top: 12px;line-height: 44px; background-color: white; border: 0px;">
+            <table style="width: 100%; border: 0px; border-radius: 0px;">
+                <tr style="color: black; align-items: center;">
+                <td style="width: 13%; padding: 10px;">
+                  <img src="Uploads/{{obj.proofPicName}}" class="card-img-top" height="150px" width="150px">
+                </td>
+                <td style="width: 15%; font-family: cursive; margin-left: 10px;" ><span class="common" > Name:</span> {{obj.fname}} <br > <span class="common">Email: </span>{{obj.emailID}} <br><span class="common"> Number:</span> {{obj.CNumber}} </td>
+                <td style="width: 15%; font-family: cursive;"> <span class="common">Gender:</span> {{obj.gender}} <br> <span class="common">Category: </span>{{obj.category}} <br> <span class="common">Firm:</span> {{obj.firm}}</td>
+                <td style="width: 15%;  font-family: cursive;"> <span class="common">Website:</span> {{obj.website}} <br> <span class="common">Location:</span> {{obj.location}} <br><span class="common"> Since:</span> {{obj.since}}</td>               
+                <td style="width: 22%;font-family: cursive;" >{{obj.OtherInfo}}</td>
+    
+            </tr></table>
+        </div>
+    </center>
+</body>
+</html>
