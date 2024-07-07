@@ -1,7 +1,7 @@
 const express= require('express');
 const fileuploader=require("express-fileupload");
 const app=express();
-const port=3077;
+const port=process.env.PORT || 3077;
 const mysql2=require('mysql2');
 app.listen(port,function()
 {
